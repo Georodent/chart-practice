@@ -98,10 +98,14 @@ console.log("let's build some charts!")
 
       //  Function is for onclick
       function showTimelineChart(){
-        drawStudyTimeline()
+        // TODO: validate that it's a legit color string
+        let color = document.getElementById("color").value
+        drawStudyTimeline(color)
       }
+      //  End of onclick      
 
-      function drawStudyTimeline(){
+      //  Time Line Chart begins
+      function drawStudyTimeline(color){
          var container = document.getElementById('study-timeline');
         var chart = new google.visualization.Timeline(container);
         var dataTable = new google.visualization.DataTable();
@@ -114,9 +118,20 @@ console.log("let's build some charts!")
           [ 'Choose Major',      new Date(2019, 5, 1),  new Date(2019, 7, 1) ],
           [ '2 Courses Completed',  new Date(2019, 8, 1),  new Date(2020, 4, 1)],
           [ 'Complete 12 courses',  new Date(2020, 8, 1),  new Date(2022, 4, 1)]]);
-
-        chart.draw(dataTable);
+        
+        // Var for styling of time line
+        var options = {
+          timeline: { singleColor: color },
+        };
+        
+        
+        //  Pass in options after dataTable for the bars be all red
+        chart.draw(dataTable, options);
       }
+      // Time Line Chart ends
+
+
+
       function drawStudyBar(){
         
       }
