@@ -7,7 +7,7 @@ console.log("let's build some charts!")
       // Set a callback to run when the Google Visualization API is loaded.
 //      google.charts.setOnLoadCallback(drawChart1);
 //      google.charts.setOnLoadCallback(drawChart2);
-     google.charts.setOnLoadCallback(drawStudyTimeline); 
+     
      google.charts.setOnLoadCallback(drawStudyBar);
      google.charts.setOnLoadCallback(drawDonationChart);
        function drawDonationChart(){
@@ -96,6 +96,10 @@ console.log("let's build some charts!")
         chart.draw(data, google.charts.Bar.convertOptions(options));
       }
 
+      //  Function is for onclick
+      function showTimelineChart(){
+        drawStudyTimeline()
+      }
 
       function drawStudyTimeline(){
          var container = document.getElementById('study-timeline');
